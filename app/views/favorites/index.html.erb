@@ -1,5 +1,9 @@
-<% provide :title, @user.name + t(".title") %>
-<h2><%= @user.name + t(".title") %></h2>
+<% provide :title, @user.email + t(".title") %>
+<% if @user.name.nil? %>
+  <h2><%= @user.email %><%= t(".title") %></h2>
+<% else %>
+  <h2><%= @user.name %><%= t(".title") %></h2>
+<% end %>
 <div class="row">
   <%= render @books %>
   <%= will_paginate @books %>
