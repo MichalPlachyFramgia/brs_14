@@ -6,7 +6,14 @@ RSpec.describe UsersController, :type => :controller do
       get :index
 
       expect(response).to render_template("index")
-    end  
+    end
+
+    it "responds successfully with an HTTP 200 status code" do
+      get :index
+
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET #show" do
